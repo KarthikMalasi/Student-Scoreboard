@@ -1,0 +1,289 @@
+/* =====================
+   RESET & BASE
+   ===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:       #0a0a0a;
+  --bg-soft:  #111111;
+  --border:   #2a2a2a;
+  --cyan:     #c8c8c8;
+  --cyan-dim: rgba(200, 200, 200, 0.07);
+  --text:     #7a7a7a;
+  --white:    #e8e8e8;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background: linear-gradient(135deg, #0a0a0a, #111111);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Inputs */
+input {
+  background-color: transparent;
+  color: var(--cyan);
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+input::placeholder {
+  color: #3a3a3a;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--cyan);
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--cyan);
+  color: var(--bg);
+  box-shadow: 0 0 10px rgba(200, 200, 200, 0.3);
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+th {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+tr:not(:last-child) td {
+  border-bottom: 1px solid #1a1a1a;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* =====================
+   LAYOUT
+   ===================== */
+.app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem;
+  min-height: 100vh;
+}
+
+/* =====================
+   HEADING
+   ===================== */
+.heading {
+  width: 50rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.heading h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--white);
+}
+
+.heading h1 span {
+  color: var(--cyan);
+  text-shadow: 0 0 15px rgba(200, 200, 200, 0.4);
+}
+
+/* =====================
+   CARD BASE
+   ===================== */
+.add-student,
+.summary,
+.all-details {
+  width: 50rem;
+  background: rgba(17, 17, 17, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+/* =====================
+   ADD STUDENT
+   ===================== */
+.add-student__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.add-student__fields {
+  display: flex;
+}
+
+.add-student__fields input {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-right: 1px solid var(--border);
+}
+
+.add-student__fields button {
+  width: 7rem;
+}
+
+/* ===== SUMMARY ===== */
+
+.summary {
+  width: 50rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px !important;
+
+  border: none !important;
+  background: transparent !important;
+}
+
+.summary__card {
+  flex: 0 0 auto !important;
+
+  width: 160px !important;
+  padding: 20px !important;
+
+  border: 1px solid #2a2a2a !important;
+  border-radius: 12px !important;
+
+  background: #111111 !important;
+  text-align: center !important;
+
+  transition: 0.2s ease;
+}
+
+.summary__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(200, 200, 200, 0.1);
+}
+
+/* text */
+.summary__label {
+  display: block;
+  font-size: 11px;
+  color: #7a7a7a;
+  margin-bottom: 6px;
+}
+
+.summary__value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #c8c8c8;
+}
+
+.summary__bar {
+  display: none !important;
+}
+
+/* =====================
+   TABLE
+   ===================== */
+.all-details__header {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.all-details__table th {
+  color: #5a5a5a;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.all-details__table td {
+  padding: 0.75rem;
+}
+
+tr:hover {
+  background-color: rgba(200, 200, 200, 0.03);
+}
+
+/* =====================
+   BADGES
+   ===================== */
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+.badge__dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+}
+
+.badge--pass {
+  color: #aaaaaa;
+  border-color: #444444;
+}
+
+.badge--pass .badge__dot {
+  background-color: #aaaaaa;
+}
+
+.badge--fail {
+  color: #555555;
+  border-color: #333333;
+}
+
+.badge--fail .badge__dot {
+  background-color: #555555;
+}
+
+/* =====================
+   UPDATE CELL
+   ===================== */
+.update-cell {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.update-cell input {
+  width: 3.5rem;
+  padding: 0.25rem;
+  border: 1px solid #2a2a2a;
+}
+
+.update-cell button {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border);
+}
+
+.update-cell button:hover {
+  background-color: var(--cyan-dim);
+  color: var(--cyan);
+}
